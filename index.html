@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>US MODS SIM DATABASE</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+    }
+
+    .avatar-wrapper {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 8px solid #ff0066;
+      box-shadow: 0 0 30px #ff0066;
+      background: #111;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px #00fff7;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #00fff7, #4facfe);
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 255, 247, 0.4);
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #4facfe, #00fff7);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 255, 247, 0.6);
+    }
+
+    .whatsapp-btn {
+      margin-top: 20px;
+      background: linear-gradient(90deg, #25D366, #128C7E);
+      color: #fff;
+    }
+
+    .whatsapp-btn:hover {
+      background: linear-gradient(90deg, #128C7E, #25D366);
+    }
+
+    .response-box {
+      background: rgba(255, 255, 255, 0.1);
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      max-height: 300px;
+      overflow-y: auto;
+      color: #fff;
+      text-align: left;
+      font-size: 14px;
+      box-shadow: inset 0 0 10px rgba(0, 255, 247, 0.2);
+    }
+
+    .formatted-data {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .formatted-data p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+
+    .separator {
+      margin: 10px 0;
+      border-top: 2px solid #ff6600;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 20px;
+        width: 90%;
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="matrix"></canvas>
+
+  <div class="container">
+    <h1>US MODS SIM DATABASE</h1>
+
+    <div class="avatar-wrapper">
+      <img src="https://i.ibb.co/d0XZLt4K/IMG-20250511-002924-317.jpg" alt="Profile Picture" />
+    </div>
+
+    <input type="text" id="number" placeholder="Enter phone number" required />
+    <button id="fetchData">Search</button>
+
+    <a href="https://wa.me/923189580874" target="_blank">
+      <button class="whatsapp-btn">Chat on WhatsApp</button>
+    </a>
+
+    <div id="responseBox" class="response-box"></div>
+  </div>
+
+<script>
+  const fetchButton = document.getElementById("fetchData");
+  const responseBox = document.getElementById("responseBox");
+
+  fetchButton.addEventListener("click", async () => {
+    const number = document.getElementById("number").value.trim();
+    responseBox.innerHTML = '';
+
+    if (!number) {
+      alert("Please enter a valid number.");
+      return;
+    }
+
+    responseBox.innerHTML = '<p style="text-align:center;">Fetching data...</p>';
+
+    const url = `https://fam-official.serv00.net/sim/api.php?num=${number}`)}`;
+
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      const apiData = JSON.parse(result.contents);
+
+      if (response.data && response.data.status === "success" && Array.isArray(response.data.data) && response.data.data.length > 0) {
+        letlet formattedResponse = `📋 *\` 𝙐𝙎 𝙈𝙊𝘿𝙎 𝐒𝐈𝐌 𝐃𝐀𝐓𝐀𝐁𝐀𝐒𝐄\`*\n\n`;
+
+            // Loop through all results and format them
+            response.data.data.forEach((userData, index) => {
+            <div class="formattedResponse +
+              <p><strong>🔹 Name:</strong> ${user.Name || "N/A"}</p>
+              <p><strong>🔹 Mobile:</strong> ${user.Mobile || "N/A"}</p>
+              <p><strong>🔹 CNIC:</strong> ${user.CNIC || "N/A"}</p>
+              <p><strong>🔹 Operator:</strong> ${user.Operator || "N/A"}</p>
+              <p><strong>🔹 Address:</strong> ${user.Address || "N/A"}</p>
+            </div>
+            <div class="separator"></div>
+          `;
+        });
+
+        responseBox.innerHTML = formattedData;
+      } else {
+        responseBox.innerHTML = `<div class="error">❌ No data found for this number</div>`;
+      }
+    } catch (error) {
+      responseBox.innerHTML = `<div class="error">❌ API Error: ${error.message}</div>`;
+    }
+  });
+</script>
+
+<!-- Matrix Effect Script -->
+<script>
+  const canvas = document.getElementById("matrix");
+  const ctx = canvas.getContext("2d");
+
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const letters = "01";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 33);
+</script>
+
+</body>
+</html>
