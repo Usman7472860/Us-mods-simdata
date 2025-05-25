@@ -1,272 +1,132 @@
-<!DOCTYPE html>
 <html lang="en">
-<head> 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>US MODS SIM DATABASE</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
-
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>US MODS~SIMDATABASE</title> 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
     body {
-      font-family: 'Poppins', sans-serif;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-      color: #fff;
-      overflow: hidden;
-      position: relative;
+      font-family: 'Inter', sans-serif;
+    }
+  </style> 
+  <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.max-h-96{max-height:24rem}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-md{max-width:28rem}.items-center{align-items:center}.justify-center{justify-content:center}.overflow-auto{overflow:auto}.whitespace-pre-wrap{white-space:pre-wrap}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.text-center{text-align:center}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.tracking-wide{letter-spacing:0.025em}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.placeholder-gray-400::placeholder{--tw-placeholder-opacity:1;color:rgb(156 163 175 / var(--tw-placeholder-opacity, 1))}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.hover\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-700:hover{--tw-bg-opacity:1;background-color:rgb(67 56 202 / var(--tw-bg-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-indigo-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(99 102 241 / var(--tw-ring-opacity, 1))}</style>
+ </head> 
+ <body class="min-h-screen flex items-center justify-center bg-gray-100 p-4"> 
+  <div class="w-full max-w-md bg-white rounded-xl border border-gray-300 p-6 shadow-xl"> 
+   <h1 class="text-indigo-600 text-center text-xl font-semibold mb-2 tracking-wide">NADRA TRACKER</h1> 
+   <h2 class="text-gray-700 text-center text-lg mb-6 font-medium">SIM DATA TERMINAL</h2> 
+   <input id="mobile-input" type="text" placeholder="Enter mobile number or CNIC" class="w-full border border-gray-300 text-gray-800 placeholder-gray-400 text-sm px-3 py-2 mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"> 
+   <button onclick="fetchSimData()" class="w-full bg-indigo-600 text-white text-sm font-semibold py-2 rounded-lg hover:bg-indigo-700 transition"> Execute Query </button> 
+   <pre id="data-display" class="w-full border border-gray-300 text-gray-800 text-sm p-4 mt-4 mb-4 bg-gray-50 rounded-lg whitespace-pre-wrap overflow-auto max-h-96">𝚂𝚎𝚊𝚛𝚌𝚑 𝚑𝚎𝚛𝚎 ...
+    </pre> 
+   <button onclick="exportToWhatsApp()" class="w-full bg-green-500 text-white text-sm font-semibold py-2 rounded-lg hover:bg-green-600 transition mb-3"> Export to WhatsApp </button> 
+   <button onclick="joinChannel()" class="w-full bg-gray-700 text-white text-sm font-semibold py-2 rounded-lg hover:bg-gray-800 transition"> Join WhatsApp Channel </button> 
+   <p class="text-gray-400 text-center text-xs mt-6"> A Project of Usman Chachar </p> 
+  </div> 
+  <script>
+    let currentData = "";
+
+    function formatCNIC(cnic) {
+      return cnic.replace(/^(\d{5})(\d{7})(\d{1})$/, "$1-$2-$3");
     }
 
-    #matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background: black;
+    function formatMobile(mobile) {
+      return mobile.replace(/^92/, "0");
     }
 
-    .container {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-      border-radius: 20px;
-      padding: 40px 30px;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-    }
+    function fetchSimData() {
+      const mdn = document.getElementById("mobile-input").value.trim();
+      const display = document.getElementById("data-display");
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #00fff7;
-      text-shadow: 0 0 15px #00fff7;
-    }
-
-    .avatar-wrapper {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 8px solid #ff0066;
-      box-shadow: 0 0 30px #ff0066;
-      background: #111;
-    }
-
-    .avatar-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    input {
-      width: 100%;
-      padding: 15px;
-      margin: 15px 0;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-size: 16px;
-      outline: none;
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-
-    input:focus {
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 10px #00fff7;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 10px;
-      background: linear-gradient(90deg, #00fff7, #4facfe);
-      border: none;
-      border-radius: 10px;
-      color: #000;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 255, 247, 0.4);
-    }
-
-    button:hover {
-      background: linear-gradient(90deg, #4facfe, #00fff7);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0, 255, 247, 0.6);
-    }
-
-    .whatsapp-btn {
-      margin-top: 20px;
-      background: linear-gradient(90deg, #25D366, #128C7E);
-      color: #fff;
-    }
-
-    .whatsapp-btn:hover {
-      background: linear-gradient(90deg, #128C7E, #25D366);
-    }
-
-    .response-box {
-      background: rgba(255, 255, 255, 0.1);
-      margin-top: 30px;
-      padding: 20px;
-      border-radius: 15px;
-      max-height: 300px;
-      overflow-y: auto;
-      color: #fff;
-      text-align: left;
-      font-size: 14px;
-      box-shadow: inset 0 0 10px rgba(0, 255, 247, 0.2);
-    }
-
-    .formatted-data {
-      margin-top: 10px;
-      text-align: left;
-    }
-
-    .formatted-data p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 8px 0;
-    }
-
-    .separator {
-      margin: 10px 0;
-      border-top: 2px solid #ff6600;
-      width: 100%;
-    }
-
-    @media screen and (max-width: 600px) {
-      .container {
-        padding: 20px;
-        width: 90%;
-        max-width: 100%;
+      if (!mdn) {
+        display.innerText = "> Please enter a mobile number or CNIC.";
+        return;
       }
 
-      h1 {
-        font-size: 24px;
-      }
-    }
-  </style>
-</head>
+      display.innerText = "𝙵𝚎𝚝𝚌𝚑𝚒𝚗𝚐 𝚍𝚊𝚝𝚊 ...";
 
-<body>
+      fetch(`https://nadratracker.42web.io/api/v1/2024/fetch?search_term=${mdn}`)
+        .then((res) => res.json())
+        .then((data) => {
+          let output = "";
+          let entryCount = 0;
 
-  <canvas id="matrix"></canvas>
+          // Store PTCL records separately
+          const ptclRecords = Array.isArray(data.ptcl) ? data.ptcl : [];
 
-  <div class="container">
-    <h1>US MODS SIM DATABASE</h1>
+          for (const provider in data) {
+            const entries = data[provider];
+            if (Array.isArray(entries)) {
+              entries.forEach((entry) => {
+                const name = (entry.Name || entry.NAME || entry.CUSTOMER_NAME || "UNKNOWN").toUpperCase();
+                const address = (entry.Address || entry.ADDRESS || entry.ADDRESS1 || "UNKNOWN").toUpperCase();
+                const rawCNIC = entry.CNIC || entry.NIC || entry.CNIC_NTN || "N/A";
+                const rawMobile = entry.Mobile || entry.SUB_NO || entry.MOBILE_NO || "UNKNOWN";
+                const imsi = entry.IMSI || "NOT FOUND";
+                const ID = entry.id || entry.ID || "UNKNOWN";
+                const formattedCNIC = rawCNIC !== "N/A" ? formatCNIC(rawCNIC) : "N/A";
+                const formattedMobile = formatMobile(rawMobile);
 
-    <div class="avatar-wrapper">
-      <img src="https://i.ibb.co/d0XZLt4K/IMG-20250511-002924-317.jpg" alt="Profile Picture" />
-    </div>
+                let gender = "UNKNOWN";
+                const cleanCNIC = rawCNIC.replace(/-/g, '');
+                if (/^\d{13}$/.test(cleanCNIC)) {
+                  const genderDigit = parseInt(cleanCNIC[12]);
+                  gender = genderDigit % 2 === 0 ? "FEMALE" : "MALE";
+                }
 
-    <input type="text" id="number" placeholder="Enter phone number" required />
-    <button id="fetchData">Search</button>
+                // Match CNIC with ptcl records for father name
+                let fatherName = "";
+                const matchedPTCL = ptclRecords.find(ptcl => (ptcl.CNIC_NTN || "").replace(/-/g, '') === cleanCNIC);
+                if (matchedPTCL && matchedPTCL.FATHER_NAME) {
+                  fatherName = matchedPTCL.FATHER_NAME.toUpperCase();
+                }
 
-    <a href="https://wa.me/923189580874" target="_blank">
-      <button class="whatsapp-btn">Chat on WhatsApp</button>
-    </a>
+                output += `
+𝗥𝗘𝗖𝗢𝗥𝗗 #${++entryCount}
+𝗖𝗨𝗦𝗧𝗢𝗠𝗘𝗥 𝗜𝗗: ${ID}
+𝗢𝗣𝗘𝗥𝗔𝗧𝗢𝗥: ${provider.toUpperCase()}-PK
+𝗜𝗠𝗦𝗜: ${imsi}
+𝗠𝗦𝗜𝗦𝗗𝗡: ${formattedMobile}
+𝗡𝗔𝗠𝗘: ${name}
+${fatherName ? `𝗙𝗔𝗧𝗛𝗘𝗥 𝗡𝗔𝗠𝗘: ${fatherName}` : ""}
+𝗖𝗡𝗜𝗖: ${formattedCNIC}
+𝗔𝗗𝗗𝗥𝗘𝗦𝗦: ${address}, PAKISTAN
+𝗦𝗧𝗔𝗧𝗨𝗦: VERIFIED
+𝗚𝗘𝗡𝗗𝗘𝗥: ${gender}
+                `.trim() + "\n\n";
+              });
+            }
+          }
 
-    <div id="responseBox" class="response-box"></div>
-  </div>
-
-<script>
-  const fetchButton = document.getElementById("fetchData");
-  const responseBox = document.getElementById("responseBox");
-
-  fetchButton.addEventListener("click", async () => {
-    const number = document.getElementById("number").value.trim();
-    responseBox.innerHTML = '';
-
-    if (!number) {
-      alert("Please enter a valid number.");
-      return;
-    }
-
-    responseBox.innerHTML = '<p style="text-align:center;">Fetching data...</p>';
-
-    const url = `https://fam-official.serv00.net/sim/api.php?num=${number}`)}`;
-
-    try {
-      const response = await fetch(url);
-      const result = await response.json();
-      const apiData = JSON.parse(result.contents);
-
-      if (response.data && response.data.status === "success" && Array.isArray(response.data.data) && response.data.data.length > 0) {
-        letlet formattedResponse = `📋 *\` 𝙐𝙎 𝙈𝙊𝘿𝙎 𝐒𝐈𝐌 𝐃𝐀𝐓𝐀𝐁𝐀𝐒𝐄\`*\n\n`;
-
-            // Loop through all results and format them
-            response.data.data.forEach((userData, index) => {
-            <div class="formattedResponse +
-              <p><strong>🔹 Name:</strong> ${user.Name || "N/A"}</p>
-              <p><strong>🔹 Mobile:</strong> ${user.Mobile || "N/A"}</p>
-              <p><strong>🔹 CNIC:</strong> ${user.CNIC || "N/A"}</p>
-              <p><strong>🔹 Operator:</strong> ${user.Operator || "N/A"}</p>
-              <p><strong>🔹 Address:</strong> ${user.Address || "N/A"}</p>
-            </div>
-            <div class="separator"></div>
-          `;
+          if (output) {
+            currentData = output.trim();
+            display.innerText = currentData;
+          } else {
+            display.innerText = " 𝙽𝚘 𝚁𝚎𝚌𝚘𝚛𝚍 𝙵𝚘𝚞𝚗𝚍;";
+            currentData = "";
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          display.innerText = "> 𝙽𝚘 𝚁𝚎𝚌𝚘𝚛𝚍 𝙵𝚘𝚞𝚗𝚍;";
+          currentData = "";
         });
-
-        responseBox.innerHTML = formattedData;
-      } else {
-        responseBox.innerHTML = `<div class="error">❌ No data found for this number</div>`;
-      }
-    } catch (error) {
-      responseBox.innerHTML = `<div class="error">❌ API Error: ${error.message}</div>`;
     }
-  });
-</script>
 
-<!-- Matrix Effect Script -->
-<script>
-  const canvas = document.getElementById("matrix");
-  const ctx = canvas.getContext("2d");
-
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  const letters = "01";
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = Array.from({ length: columns }).fill(1);
-
-  function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0F0";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = letters.charAt(Math.floor(Math.random() * letters.length));
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
+    function exportToWhatsApp() {
+      if (!currentData) {
+        alert("No data to export.");
+        return;
       }
-      drops[i]++;
+
+      const encodedText = encodeURIComponent(currentData);
+      const whatsappURL = `https://wa.me/?text=${encodedText}`;
+      window.open(whatsappURL, "_blank");
     }
-  }
 
-  setInterval(draw, 33);
-</script>
-
-</body>
+    function joinChannel() {
+      window.open("https://whatsapp.com/channel/0029Vb0VL2XBadmVD2Skk53o", "_blank");
+    }
+  </script> 
+ </body>
 </html>
