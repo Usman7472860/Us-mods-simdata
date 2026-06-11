@@ -1,11 +1,11 @@
 {
   "name": "us-mod-md-v2",
-  "version": "3.0.0",
-  "description": "US MOD MD V2 - Multi-Session by M Usman Chachar",
-  "main": "server.js",
+  "version": "3.1.0",
+  "description": "US MOD MD V2 - Multi-Session Vercel Fix",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node api/index.js",
+    "dev": "node api/index.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -15,7 +15,6 @@
     "@hapi/boom": "^10.0.1",
     "pino": "^9.3.2",
     "axios": "^1.7.2",
-    "chalk": "^4.1.2",
     "fs-extra": "^11.2.0",
     "moment": "^2.30.1"
   },
